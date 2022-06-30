@@ -17,13 +17,16 @@ class BLOODLETTER_API UBaseUserWidget : public UUserWidget
 	
 public:
 	UBaseUserWidget(const FObjectInitializer& objectInitializer);
+	virtual void NativePreConstruct() override;
 	virtual void NativeConstruct() override;
 	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
 
 
-	/*
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UCanvasPanel* CanvasPanel;
 
+	/*
 private:
 	*/
 };

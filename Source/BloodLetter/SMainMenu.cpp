@@ -13,7 +13,7 @@ void SMainMenu::Construct(const FArguments& InArgs)
 	const FMargin ButtonPadding = FMargin(10.0f);
 
 
-	const FText TitleText = LOCTEXT("GameTitle", "Fuck UI, I love it");
+	const FText TitleText = LOCTEXT("GameTitle", "BloodLetter");
 	const FText PlayText = LOCTEXT("PlayGame", "Play");
 	const FText SettingsText = LOCTEXT("Settings", "Settings");
 	const FText QuitText = LOCTEXT("QuitGame", "Quit Game");
@@ -32,7 +32,7 @@ void SMainMenu::Construct(const FArguments& InArgs)
 			.VAlign(VAlign_Fill)
 			[
 				SNew(SImage)
-				.ColorAndOpacity(FColor::Black)
+				.ColorAndOpacity(FColor{0, 0, 0})
 			]
 			
 			+ SOverlay::Slot()
