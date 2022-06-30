@@ -100,6 +100,9 @@ void SMainMenu::Construct(const FArguments& InArgs)
 
 FReply SMainMenu::OnPlayClicked() const
 {
+	if (OwningHUD.IsValid())
+		OwningHUD->RemoveMenu();
+
 	return FReply::Handled();
 }
 

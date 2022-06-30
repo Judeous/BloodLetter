@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -38,7 +36,13 @@ public:
 	void ReleaseJump();
 	virtual void Landed(const FHitResult& hit) override;
 
+	//MainMenu (Can be pause menu later)
+	void OpenMenu();
+
 private:
+	//Need reference to controller for UI purposes
+	APlayerController* _playerController = nullptr;
+
 	float TimeHoldingJump = 0;
 	bool bIsHoldingJump = false;
 	bool bHasJumped = false;

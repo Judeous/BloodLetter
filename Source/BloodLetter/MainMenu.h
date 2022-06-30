@@ -12,9 +12,15 @@ class BLOODLETTER_API AMainMenu : public AHUD
 public:
 	virtual void BeginPlay() override;
 
+	//MainMenu
+	void ShowMenu();
+	void RemoveMenu();
+
 protected:
 
 	TSharedPtr<class SMainMenu> MenuWidget;
 	TSharedPtr<class SWidget> MenuWidgetContainer;
 
+private:
+	bool bMenuIsMade = false;
 };

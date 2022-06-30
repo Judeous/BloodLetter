@@ -1,7 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "PlayerCharacter.h"
+#include "MainMenu.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -16,6 +14,7 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	_playerController = Cast<APlayerController>(GetController());
 }
 
 // Called every frame
@@ -51,6 +50,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	//Reads jump input
 	InputComponent->BindAction("Jump", IE_Pressed, this, &APlayerCharacter::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &APlayerCharacter::ReleaseJump);
+
+	InputComponent->BindAction("Pause", IE_Pressed, this, &APlayerCharacter::OpenMenu);
 }
 
 void APlayerCharacter::MoveRight(float AxisValue)
@@ -116,3 +117,8 @@ void APlayerCharacter::Landed(const FHitResult& hit)
 	bHasJumped = false;
 }
 
+void APlayerCharacter::OpenMenu()
+{
+	if (AMainMenu* MainMenu = Cast<AMainMenu>(_playerController->GetHUD()))
+		MainMenu->ShowMenu();
+}
